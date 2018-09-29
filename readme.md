@@ -2,7 +2,7 @@
 
 ### Contributors:
 
-Palak Singhal	16CO129
+Palak Singhal	16CO129 <br/>
 Govind Jeevan	16CO221
 
 ### Problem Statement: Write a MATLAB code to demonstrate Fermat’s Little theorem a^(p−1) ≡ 1(modp) with the proper procedure.
@@ -22,4 +22,15 @@ MATLAB fails at much larger numbers, for example it correctly says that rem(7^2,
 
 #### How we plan to overcome the problem:
 The power function in matlab however comes to the rescue and solves the problem of calculating large powers. <br/>
-The proof of the power function is as follows :
+The power function is as follows :
+function x=pow(a,n,m)
+    b=a;
+    x = 1;
+    while n>O
+        d = rem(n,2);
+        if d==1
+            x = rem(x*b,m);
+        end
+        b = rem(b * b,m);
+        n = (n-d)/2;
+    end
