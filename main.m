@@ -13,18 +13,24 @@ tbc=datestr(now);
 fprintf('\nTime before computation:\t')
 fprintf(tbc)
 fprintf('\n\n')
-%for n=2:5% Defining the power "n" here 
-% FermatWaitbar=waitbar(maxout,'Generating Fermat Numbers, Please wait...')
 
-
-for x=2:5
+for p=2:10
+flag=0;
+for x=2:p
     x
     if mod(x,p)~=0
     lhs=x^(p-1)
-    rhs=lhs-1
-    remainder=mod(rhs,p)
+    remainder=mod(lhs,p)
+     if(remainder~=1)
+        flag=1
+        fprintf('\n%d is not prime\n\n', p)
+        break
+     end
     else
-     fprintf('The number x is not co prime with the prime number p')
+        fprintf('%d is not coprime to prime: %d\n', x, p)
     end
-end % for x
-
+end 
+if flag==0 
+ fprintf('\n\%d is prime\n\n', p)
+end
+end
