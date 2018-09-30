@@ -21,7 +21,7 @@ If say p = 1000000, then even with a = 2 it is completely infeasible to work out
 MATLAB fails at much larger numbers, for example it correctly says that rem(7^2,10) = 9 but it claims that rem(7^20,10) = 0 which is obviously false.<br/>
 
 #### How we plan to overcome the problem:
-The power function in matlab however comes to the rescue and solves the problem of calculating large powers. <br/>
+The following power calculation algorithm solves the problem of calculating large powers. <br/>
 The power function is as follows :
 function x=pow(a,n,m)
     b=a;
