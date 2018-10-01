@@ -1,5 +1,5 @@
 primes=[];
-for p=1:100
+for p=1:1000
 flag=1;
 for a=1:p
     if gcd(p,a)~=1
@@ -7,9 +7,7 @@ for a=1:p
     end
     lhs=pow(a,p-1,p)
     if lhs ~= 1
-        a
- 
-        flag=0
+        flag=0;
     end
 end
 
