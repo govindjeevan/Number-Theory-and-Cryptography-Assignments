@@ -1,0 +1,7 @@
+p=7;
+sym x;
+sym r;
+sym y;
+y= 67*x+4;
+
+mod(y,p-1)
