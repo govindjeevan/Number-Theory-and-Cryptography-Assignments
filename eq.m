@@ -1,7 +1,7 @@
-str = input('Give an equation in x: ','s')  ;
-   % the user types in, for instance 2*x^2-3*x+4
-x = input('Type in a value of x: ') ; 
-   % the user types in, for instance, 2
-f = inline(str,'x') ;
-y = feval(f,x) ;
-disp(['"' str '", for x = ' num2str(x) ', equals ' num2str(y)]) ;
+N = 1:11400;
+remainder = powermod(2,N-1,N);
+primesFermat = N(remainder == 1)
+
+primeNumbers = N(isprime(N));
+setdiff(primesFermat,primeNumbers)
+
