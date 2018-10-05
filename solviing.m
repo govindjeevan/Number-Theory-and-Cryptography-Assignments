@@ -41,5 +41,4 @@ end
 % different values of x and y and verfied.
  
 mod(subs(reduced,{x,y},{2,1}),p)
-mod(subs(original,{x,y;},
-{2,1}),p)
+mod(subs(original,{x,y},{2,1}),p)
