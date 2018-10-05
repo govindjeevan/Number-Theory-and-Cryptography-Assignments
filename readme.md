@@ -51,3 +51,17 @@ Input for prime number is taken in a format say 4n+1. Since it's not necessary f
 #### 4. Solution approach:
 
 In this approach we found out prime numbers by taking a fixed value of a instead of trying for many values of a and found out numbers which are prime by applying Feramt's theorem . However if by applying Feramt's theorem if some number p defies it , that tells us that the number is composite however if it gives the reminder 1 we cannot be sure that the number is prime . Hence these numbers which give 1 but still are not prime are called pseudoprimes. We find the set difference between set of numbers obtained by fermat's theorem and actual prime numbers .
+
+### FILE FORMAT:
+
+1. solution1.m<br/>
+-> Used for the 1st solution approach<br/>
+
+2. solution2.m<br/>
+-> Used for the 2nd solution approach.<br/>
+
+3. solution3.m<br/>
+-> Used for the third solution approach.<br/>
+
+4. solution4.m<br/>
+-> Used for the 4th solution approach.<br/>
