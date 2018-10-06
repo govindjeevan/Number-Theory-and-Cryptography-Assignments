@@ -25,8 +25,8 @@ else
   sign = '-'
 end
 
-astr= substr( inp_string, 1, idx-2)
-bstr= substr(inp_string, idx+1, length(inp_string)-idx)
+astr= extractAfter( inp_string, 1, idx-2)
+bstr= extractAfter(inp_string, idx+1, length(inp_string)-idx)
 
 a=str2num(astr)
 b=str2num(bstr)
