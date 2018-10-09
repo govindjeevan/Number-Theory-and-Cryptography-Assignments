@@ -1,0 +1,73 @@
+[1mdiff --git a/solution1.m b/solution1.m[m
+[1mindex dcc8ee0..301a3d7 100644[m
+[1m--- a/solution1.m[m
+[1m+++ b/solution1.m[m
+[36m@@ -1,7 +1,7 @@[m
+ primes=[];[m
+ for p=1:1000[m
+ flag=1;[m
+[31m-for a=1:p[m
+[32m+[m[32mfor a=2:p[m
+     if gcdcalc(p,a)~=1[m
+         continue;[m
+     end[m
+[1mdiff --git a/solution2.m b/solution2.m[m
+[1mindex a9dfc3c..ebc09f6 100644[m
+[1m--- a/solution2.m[m
+[1m+++ b/solution2.m[m
+[36m@@ -14,25 +14,20 @@[m
+ [m
+ syms x;[m
+ syms y;[m
+[31m-symps pr;[m
+[32m+[m[32msyms pr;[m
+ syms exp;[m
+ [m
+ exp=67*x+4;[m
+ [m
+ a=3*y+2;[m
+ p=17;[m
+[31m-[m
+ mod(exp,p-1)[m
+ [m
+ % Fermat's theroem is only applicable when a and p are co prime to each other , hence we check if gcd of a and p is 1 [m
+[31m-[m
+ if gcd(a,p)==1[m
+[31m-[m
+ % expand function is used to expand a number raised to an expression [m
+[31m-[m
+ % original expression after expanding a raised to the power of a expression[m
+     original=expand(a^exp)[m
+[31m-[m
+ % reduced expression after expanding a raised to the power of a mod (p-1)[m
+     reduced=expand(a^(mod(exp,p-1)))[m
+ end[m
+[1mdiff --git a/solviing.m b/solviing.m[m
+[1mindex dfb74dc..368854a 100644[m
+[1m--- a/solviing.m[m
+[1m+++ b/solviing.m[m
+[36m@@ -14,4 +14,21 @@[m [mif gcd(a,p)==1[m
+ end[m
+ [m
+ mod(subs(reduced,{x,y},{2,1}),p)[m
+[31m-mod(subs(original,{x,y},{2,1}),p)[m
+\ No newline at end of file[m
+[32m+[m[32mmod(subs(original,{x,y}s x;[m
+[32m+[m[32msyms y;[m
+[32m+[m[32msyms pr;[m
+[32m+[m[32msyms exp;[m
+[32m+[m[32mexp=67*x+4;[m
+[32m+[m[32ma=3*y+3;[m
+[32m+[m[32mp=3;[m
+[32m+[m
+[32m+[m[32mmod(exp,p-1)mod(exp,p-1)[m
+[32m+[m
+[32m+[m[32mgcd(a,p)[m
+[32m+[m[32mif gcd(a,p)==1[m
+[32m+[m[32m    original=expand(a^exp)[m
+[32m+[m[32m    reduced=expand(a^(mod(exp,p-1)))[m
+[32m+[m[32mend[m
+[32m+[m
+[32m+[m[32mmod(subs(reduced,{x,y},{2,1}),p)[m
+[32m+[m[32mmod(subs(original,{x,y},{2,1}),p),{2,1}),p)[m
+\ No newline at end of file[m
