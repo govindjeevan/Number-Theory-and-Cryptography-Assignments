@@ -27,11 +27,11 @@ prompt = 'What is the original value? ';
 inp_string = input(prompt, 's');
 
 %taking the lower range of prime numbers
-prompt = 'Enter the lower range of prime numbers ';
+prompt = 'Enter the lower range of x ';
 l = input(prompt)
 
 %taking the upper range of prime numbers
-prompt = 'Enter the upper range of prime numbers ';
+prompt = 'Enter the upper range of x ';
 h= input(prompt)
 
 % finding the sign from the input format whether + or -
@@ -44,12 +44,12 @@ else
 end
 
 % finding the value of a and b when an input string of the format ax+b is entered
-astr= substr( inp_string, 1, idx-2)
-bstr= substr(inp_string, idx+1, length(inp_string)-idx)
+astr= extractBetween( inp_string, 1, idx-2)
+bstr= extractBetween(inp_string, idx+1, length(inp_string))
 
 % converting a and b to respective numbers from string format
-a=str2num(astr)
-b=str2num(bstr)
+a=str2double(astr)
+b=str2double(bstr)
 
 %empty array for prime numbers
 primes=[];
@@ -71,24 +71,25 @@ for n=l:h
   
 %all values of a from 2 till the prime number are used to calculate the prime numbers 
   flag=1;
-  for a=2:p
+  for x=2:p
 % fermat's theorem is used to calculate the primes, for that a and p should be co prime , hence gcd should not be 1
-    if gcdcalc(p,a)~=1
+    if gcdcalc(p,x)~=1
         continue;
     end
 
 % powermod is applied here to calculate a^(p-1) mod p using modular exponentation function
-    lhs=pow(a,p-1,p)
+    lhs=pow(x,p-1,p)
 % if remainder calculated is not 1 which is the basic condition for fermat's theorem for a number to be prime , hence taht number won't be included in prime
     if lhs ~= 1
         flag=0;
+	break;
     end
   end
   
 % if the above condition is not satisfied that means the number is prime and are stored in an array of primes
-  if flag==1
-    primes=[primes,p];
-  end
+   if flag==1
+     primes=[primes,p];
+   end
 end
 
 % the final array of prime numbers is  printed

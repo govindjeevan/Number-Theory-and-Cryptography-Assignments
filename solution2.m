@@ -40,7 +40,7 @@ p= input(prompt)
 
 syms x;
 syms y;
-symps pr;
+syms pr;
 syms exp;
 
 exp=a1*x+b1;
@@ -48,11 +48,11 @@ exp=a1*x+b1;
 a=a2*y+b2;
 %p=17;
 
-modcalc(exp,p-1)
+mod(exp,p-1)
 
 % Fermat's theroem is only applicable when a and p are co prime to each other , hence we check if gcd of a and p is 1 
 
-if gcdcalc(a,p)==1
+if gcd(a,p)==1
 
 % expand function is used to expand a number raised to an expression 
 
@@ -86,3 +86,4 @@ while r ~= 0
     r = a - b*floor(a/b);
 end 
 end
+

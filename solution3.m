@@ -32,19 +32,27 @@ prompt = 'Enter the value of a for fermat theorem ';
 a= input(prompt)
 
 % all the numbers between l and h are searched for and applied fermat's theorem on to find pseudoprimes
-
-N = l:h;
+primesFermat=[];
+primeNumbers = [];
+for N = l:h;
 
 % remainder is found by calculating a^(N-1) mod N
 remainder = pow(a,N-1,N);
 
 % pseudoprimes are calculated using fermat theorem and if the remainder is 1 it is stored in an array
-primesFermat = N(remainder == 1)
+if remainder == 1
+    primesFermat= [primesFermat, N];
+end
 
 % real prime numbers between l and h are caluclated using inbuilt isprime function present in matlab
-primeNumbers = N(isprime(N));
+if isprime(N)
+    primeNumbers = [primeNumbers, N];
 
+end
+end
 % the difference between actual and pseudoprimes is calculated
+primesFermat
+primeNumbers
 setdiff(primesFermat,primeNumbers)
 
 % implementation of powermod function using modular exponentation
@@ -58,5 +66,24 @@ x = rem(x*b,m);
 end
 b = rem(b * b,m);
 n = (n-d)/2;
+end
+end
+
+function C = my_setdiff(A,B)
+% MYSETDIFF Set difference of two sets of positive integers (much faster than built-in setdiff)
+% C = my_setdiff(A,B)
+% C = A \ B = { things in A that are not in B }
+% 
+if isempty(A)
+    C = [];
+    return;
+elseif isempty(B)
+    C = A;
+    return; 
+else % both non-empty
+    bits = zeros(1, max(max(A), max(B)));
+    bits(A) = 1;
+    bits(B) = 0;
+    C = A(logical(bits(A)));
 end
 end
