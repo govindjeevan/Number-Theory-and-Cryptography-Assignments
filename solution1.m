@@ -2,7 +2,7 @@ primes=[];
 for p=1:1000
 flag=1;
 for a=1:p
-    if gcd(p,a)~=1
+    if gcdcalc(p,a)~=1
         continue;
     end
     lhs=pow(a,p-1,p)
@@ -31,3 +31,18 @@ b = rem(b * b,m);
 n = (n-d)/2;
 end
 end
+
+function b= gcdcalc(a,b) 
+a = abs(a);
+b = abs(b); 
+
+r = a - b*floor(a/b); 
+
+while r ~= 0
+    a = b;
+    b = r;
+    r = a - b*floor(a/b);
+end 
+end
+
+

@@ -42,3 +42,16 @@ end
  
 mod(subs(reduced,{x,y},{2,1}),p)
 mod(subs(original,{x,y},{2,1}),p)
+
+function b= gcdcalc(a,b) 
+a = abs(a);
+b = abs(b); 
+
+r = a - b*floor(a/b); 
+
+while r ~= 0
+    a = b;
+    b = r;
+    r = a - b*floor(a/b);
+end 
+end
