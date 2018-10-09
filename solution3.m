@@ -1,7 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        CO313-NTC ASSIGNMENT
+
+%Write a MATLAB code to demonstrate Fermat’s Little theorem a^(p−1) ≡ 1(modp) with the proper procedure.
+
+%MEMBERS:
+%1. PALAK SINGHAL  16CO129
+%2. GOVIND JEEVAN  16CO221
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc % clear the screen before printing
 clear all % clear all variables in memory
-p=5;
-x=2;
 fprintf('\n\n\n\t\t\t\t\t\t\tF E R M A T'' S   L I T T L E   T H E O R E M \n')
 fprintf('\t\t\t--------------------------------------------------------------------\n')
 fprintf('\t\t\tFermat Little Theorem: (x^p-1)= 1 mod p') 
@@ -14,56 +22,32 @@ fprintf('\nTime before computation:\t')
 fprintf(tbc)
 fprintf('\n\n')
 
+prompt = 'Enter the lower range of prime numbers ';
+l = input(prompt)
 
-prompt = 'What is the original value? ';
-inp_string = input(prompt, 's');
-if isempty(strfind(inp_string, '-'))
-  idx= strfind(inp_string, '+')
-  sign = '+'
-else
-  idx= strfind(inp_string, '-')
-  sign = '-'
-end
+prompt = 'Enter the upper range of prime numbers ';
+h= input(prompt)
 
-astr= substr( inp_string, 1, idx-2)
-bstr= substr(inp_string, idx+1, length(inp_string)-idx)
+prompt = 'Enter the value of a for fermat theorem ';
+a= input(prompt)
 
-a=str2num(astr)
-b=str2num(bstr)
+% all the numbers between l and h are searched for and applied fermat's theorem on to find pseudoprimes
 
+N = l:h;
 
-primes=[];
-for n=1:10
-  if sign =='-'
-    number = a*n -b;
-  else
-    number = a*n +b;
-  end
-  
-  if number<0
-    continue;
-  end
-  
-  p=number
-  
-  flag=1;
-  for a=1:p
-    if gcdcalc(p,a)~=1
-        continue;
-    end
-    lhs=pow(a,p-1,p)
-    if lhs ~= 1
-        flag=0;
-    end
-  end
-  
-  if flag==1
-    primes=[primes,p];
-  end
-end
+% remainder is found by calculating a^(N-1) mod N
+remainder = pow(a,N-1,N);
 
-primes
+% pseudoprimes are calculated using fermat theorem and if the remainder is 1 it is stored in an array
+primesFermat = N(remainder == 1)
 
+% real prime numbers between l and h are caluclated using inbuilt isprime function present in matlab
+primeNumbers = N(isprime(N));
+
+% the difference between actual and pseudoprimes is calculated
+setdiff(primesFermat,primeNumbers)
+
+% implementation of powermod function using modular exponentation
 function x=pow(a,n,m)
 b=a;
 x = 1;
@@ -76,17 +60,3 @@ b = rem(b * b,m);
 n = (n-d)/2;
 end
 end
-
-function b= gcdcalc(a,b) 
-a = abs(a);
-b = abs(b); 
-
-r = a - b*floor(a/b); 
-
-while r ~= 0
-    a = b;
-    b = r;
-    r = a - b*floor(a/b);
-end 
-end
-

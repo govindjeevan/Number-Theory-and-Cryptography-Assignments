@@ -14,6 +14,7 @@ Govind Jeevan	16CO221
 The conclusion can also be written rem(a^(p-1), p) = 1, meaning the remainder on dividing a^(p-1) by p is 1, or a^(p-1)≡1 mod p. <br/> 
 Hence we can find a^(p-1) and calculate it's remainder with respect to p and verify if the remainder is 1 . This theorem holds true for all integers where a is not divisible by p.<br/>
 This tool can also be used for primality test to verify if a number is prime or not where a user eneters a number p and we calculate a^(p-1) and find the remainder with respect to p where a is not divisible by p and check if the remainder is 1. If the remainder is 1 then the number can be both composite or prime , however if the number is prime then fermat's theorem always holds true.If given number is composite (or non-prime), then it may return true or false, but the probability of producing incorrect result for composite is low and can be reduced by doing more iterations.
+Input for prime number is taken in a format say 4n+1. Since it's not necessary for all 4n+1 numbers to be prime . We try to find out the numbers which are prime and of the format 4n+1 by applying Feramt's theorem.
 
 
 #### Problems with the approach:
@@ -44,11 +45,8 @@ An expression of the form a^exp ≡ 1(modp) if gcd(a,p) = 1 when continuously ta
 Showing this equality would demonstrate Fermat's theorem. <br/>
 We tried the find the value of the original and reduced expression by substituting for variables x and y with some arbitary values and verified the result. <br/>
 
+
 #### 3. Solution approach:
-
-Input for prime number is taken in a format say 4n+1. Since it's not necessary for all 4n+1 numbers to be prime . We try to find out the numbers which are prime and of the format 4n+1 by applying Feramt's theorem. Hereafter we follow the same approach as we followed in approach 1 by substituting different values for n.
-
-#### 4. Solution approach:
 
 In this approach we found out prime numbers by taking a fixed value of a instead of trying for many values of a and found out numbers which are prime by applying Feramt's theorem . However if by applying Feramt's theorem if some number p defies it , that tells us that the number is composite however if it gives the reminder 1 we cannot be sure that the number is prime . Hence these numbers which give 1 but still are not prime are called pseudoprimes. We find the set difference between set of numbers obtained by fermat's theorem and actual prime numbers .
 
