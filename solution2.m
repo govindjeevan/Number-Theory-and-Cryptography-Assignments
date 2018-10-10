@@ -55,10 +55,13 @@ mod(exp,p-1)
 if gcd(a,p)==1
 
 % expand function is used to expand a number raised to an expression 
-
+fprintf('\t\t\tOriginal expression after expanding a ^ (exp) i.e (mx+n)^(ax+b)')
 % original expression after expanding a raised to the power of a expression
+
     original=expand(a^exp)
 
+    
+fprintf('\t\t\tReduced expression after expanding a raised to the power of a mod (p-1)')
 % reduced expression after expanding a raised to the power of a mod (p-1)
     reduced=expand(a^(modcalc(exp,p-1)))
 end

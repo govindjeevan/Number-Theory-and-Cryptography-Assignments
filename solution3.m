@@ -4,8 +4,8 @@
 %Write a MATLAB code to demonstrate Fermat’s Little theorem a^(p−1) ≡ 1(modp) with the proper procedure.
 
 %MEMBERS:
-%1. PALAK SINGHAL  16CO129
-%2. GOVIND JEEVAN  16CO221
+%1. GOVIND JEEVAN  16CO221
+%2. PALAK SINGHAL  16CO129
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc % clear the screen before printing

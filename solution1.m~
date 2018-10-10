@@ -23,7 +23,7 @@ fprintf(tbc)
 fprintf('\n\n')
 
 % taking input of the input format of prime numbers
-prompt = 'What is the format of number? ';
+prompt = 'What is the original value? ';
 inp_string = input(prompt, 's');
 
 %taking the lower range of prime numbers
@@ -78,7 +78,7 @@ for n=l:h
     end
 
 % powermod is applied here to calculate a^(p-1) mod p using modular exponentation function
-    lhs=pow(x,p-1,p);
+    lhs=pow(x,p-1,p)
 % if remainder calculated is not 1 which is the basic condition for fermat's theorem for a number to be prime , hence taht number won't be included in prime
     if lhs ~= 1
         flag=0;

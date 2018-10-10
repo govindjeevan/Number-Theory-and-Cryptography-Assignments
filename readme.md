@@ -1,52 +1,86 @@
+
 # NTC ASSIGNMENT 1
 
-### Contributors:
+## Contributors:
 
-Palak Singhal	16CO129 <br/>
 Govind Jeevan	16CO221
-
-### Problem Statement: Write a MATLAB code to demonstrate Fermat’s Little theorem a^(p−1) ≡ 1(modp) with the proper procedure.
-
-### We came up with four approaches to demonstrate Fermat's Little Theorem
-
-#### 1. Solution approach:
-
-The conclusion can also be written rem(a^(p-1), p) = 1, meaning the remainder on dividing a^(p-1) by p is 1, or a^(p-1)≡1 mod p. <br/> 
-Hence we can find a^(p-1) and calculate it's remainder with respect to p and verify if the remainder is 1 . This theorem holds true for all integers where a is not divisible by p.<br/>
-This tool can also be used for primality test to verify if a number is prime or not where a user eneters a number p and we calculate a^(p-1) and find the remainder with respect to p where a is not divisible by p and check if the remainder is 1. If the remainder is 1 then the number can be both composite or prime , however if the number is prime then fermat's theorem always holds true.If given number is composite (or non-prime), then it may return true or false, but the probability of producing incorrect result for composite is low and can be reduced by doing more iterations.
-Input for prime number is taken in a format say 4n+1. Since it's not necessary for all 4n+1 numbers to be prime . We try to find out the numbers which are prime and of the format 4n+1 by applying Feramt's theorem.
+Palak Singhal	16CO129 <br/>
 
 
-#### Problems with the approach:
+### Problem Statement:
+### Write a MATLAB code to demonstrate Fermat’s Little theorem a^(p−1) ≡ 1(modp) with the proper procedure.
+
+Fermat's Little Theorem:
+
+     a^(p-1) ≡ 1 mod p
+     
+where a is not divisible by p and p is a prime.<br/>
+ We came up with four approaches to demonstrate Fermat's Little Theorem
+
+## Demonstration I:
+
+The conclusion can also be written 
+
+    remainder(a^(p-1), p) = 1, 
+
+meaning the remainder on dividing 
+**a^(p-1)^  by p is 1,  
+or
+ a^(p-1)^ ≡ 1 mod p.** 
+ where a is not divisible by p.<br/>
+#### Input: 
+ - A format for prime number. ( eg. 4x+3 ) 
+ - Upper and lower limit for range of x to be tested
+
+#### Algorithm:
+    1. p = 4x+1
+    2. a^(p-1) is calculated
+    3. Remainder on division by p.
+    4. Verify if the remainder is 1 .
+    5. If remainder != 1, it is not a prime
+    6. If remainder ==1, it is a prime or a pseudoprime. 
+
+> An outer loop varies x within the range given, and an inner loop
+> varies a.
+
+If the number (p = 4x+1) is composite (or non-prime), then it may return true or false, but the can be reduced by doing more iterations varying a.
+
+***Application:***
+Input: **4n+1**. It's not necessary for all 4n+1 numbers to be prime . 
+We try to find out the numbers which are prime and of the format 4n+1 by applying Feramt's theorem.
+
+
+#### Issue Encountered:
 
 If a and p are reasonably large numbers, how can we calculate the remainder on dividing a by p? <br/>
 If say p = 1000000, then even with a = 2 it is completely infeasible to work out an and then get the remainder from that, because 2^1000000 has about 300000 digits.<br/>
 MATLAB fails at much larger numbers, for example it correctly says that rem(7^2 ,10) = 9 but it claims that rem(7^20 ,10) = 0 which is obviously false.<br/>
 
-#### How we overcame the problem:
-The power function in matlab however comes to the rescue and solves the problem of calculating large powers. <br/>
-We plan to implement the power function on our own and check the results: <br/>
-The power function is as follows : <br/>
-function x=pow(a,n,m) <br/>
-    b=a; <br/>
-    x = 1; <br/>
-    while n>O <br/>
-        d = rem(n,2); <br/>
-        if d==1 <br/>
-            x = rem(x*b,m); <br/>
-        end <br/>
-        b = rem(b * b,m);<br/>
-        n = (n-d)/2; <br/>
-    end
+#### Implemented Solution for Issue:
 
-#### 2. Solution approach:
+Implemented an optimized power function that does not calculate the huge powers but manages to find the remainder in breaking down the number.<br/>
+**The power function is as follows :** <br/>
+
+    function x=pow(a,n,m) <br/>
+        b=a; <br/>
+        x = 1; <br/>
+        while n>O <br/>
+            d = rem(n,2); <br/>
+            if d==1 <br/>
+                x = rem(x*b,m); <br/>
+            end <br/>
+            b = rem(b * b,m);<br/>
+            n = (n-d)/2; <br/>
+        end
+
+## Demonstration II:
 
 An expression of the form a^exp ≡ 1(modp) if gcd(a,p) = 1 when continuously taken mod with p-1 should still remain congruent to 1(modp) . Hence mod(exp,p-1) when raised as power of a should give the same remainder as exp raised to the power of a by fermat's theorem. <br/> 
 Showing this equality would demonstrate Fermat's theorem. <br/>
 We tried the find the value of the original and reduced expression by substituting for variables x and y with some arbitary values and verified the result. <br/>
 
 
-#### 3. Solution approach:
+## Demonstration III:
 
 In this approach we found out prime numbers by taking a fixed value of a instead of trying for many values of a and found out numbers which are prime by applying Feramt's theorem . However if by applying Feramt's theorem if some number p defies it , that tells us that the number is composite however if it gives the reminder 1 we cannot be sure that the number is prime . Hence these numbers which give 1 but still are not prime are called pseudoprimes. We find the set difference between set of numbers obtained by fermat's theorem and actual prime numbers .
 
@@ -63,3 +97,8 @@ In this approach we found out prime numbers by taking a fixed value of a instead
 
 4. solution4.m<br/>
 -> Used for the 4th solution approach.<br/>
+
+
+
+
+
