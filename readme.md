@@ -58,7 +58,7 @@ MATLAB fails at much larger numbers, for example it correctly says that rem(7^2 
 
 #### Implemented Solution for Issue:
 
-Implemented an optimized power function that does not calculate the huge powers but manages to find the remainder in breaking down the number.<br/>
+Implemented an optimized power function that does not calculate the huge powers but manages to find the remainder by breaking down the number.<br/>
 **The power function is as follows :** <br/>
 
     function x=pow(a,n,m) <br/>
@@ -75,29 +75,52 @@ Implemented an optimized power function that does not calculate the huge powers 
 
 ## Demonstration II:
 
-An expression of the form a^exp ≡ 1(modp) if gcd(a,p) = 1 when continuously taken mod with p-1 should still remain congruent to 1(modp) . Hence mod(exp,p-1) when raised as power of a should give the same remainder as exp raised to the power of a by fermat's theorem. <br/> 
-Showing this equality would demonstrate Fermat's theorem. <br/>
+**Input:** 
+- Format of Exponent ( ax+b ).
+- Format of a ( mx+n ).
+- A known prime number.
+
+An expression of the form
+
+     a^exp ≡ 1(modp)
+
+where the power **exp** is a large variable expression, can be simplified by **Fermat's Little Theorem**, if a and p are co-prime.
+#### Algorithm:
+
+    1. If gcd(a,p)==1, Fermat's Theorem is applicable.
+    2. Original Expression = a ^ (exp) = (mx+n) ^ ( ax+b ).
+    3. Using Fermat's Theorem, a^p-1^ can be replaced as 1 in a^(exp), when congruent to p.
+    4. remainder= modcalc(exp,p-1).
+    5.  a^(exp) ≡ (1 mod p) (1 mod p) ....(1 mod p).... (1 mod p) X a ^ (remainder) mod p.
+    6. Verify by substituting for x in lhs and rhs.
+
 We tried the find the value of the original and reduced expression by substituting for variables x and y with some arbitary values and verified the result. <br/>
+eg.
+
+    Original Exponent (Bigger power): 4x+1
+    Reduced Exponent: 4*x - 16*floor(x/4 + 3/16) + 3 
+
+On substituting x as 2, we get  
+Showing this equality would demonstrate Fermat's theorem. <br/>
+
 
 
 ## Demonstration III:
 
-In this approach we found out prime numbers by taking a fixed value of a instead of trying for many values of a and found out numbers which are prime by applying Feramt's theorem . However if by applying Feramt's theorem if some number p defies it , that tells us that the number is composite however if it gives the reminder 1 we cannot be sure that the number is prime . Hence these numbers which give 1 but still are not prime are called pseudoprimes. We find the set difference between set of numbers obtained by fermat's theorem and actual prime numbers .
+In this approach we found out prime numbers by taking a fixed value of **a** instead of trying for many values of a and found out numbers which are prime by applying Feramt's theorem . 
+
+However if by applying Feramt's theorem if some number p defies it , that tells us that the number is composite however if it gives the reminder 1 we cannot be sure that the number is prime . 
+
+Hence these numbers which give 1 but still are not prime are called **pseudoprimes**. 
+We find the set difference between set of numbers obtained by fermat's theorem and actual prime numbers .
 
 ### FILE FORMAT:
 
-1. solution1.m<br/>
--> Used for the 1st solution approach<br/>
-
-2. solution2.m<br/>
--> Used for the 2nd solution approach.<br/>
-
-3. solution3.m<br/>
--> Used for the third solution approach.<br/>
-
-4. solution4.m<br/>
--> Used for the 4th solution approach.<br/>
-
+    1. Demo I: solution1.m<br/>
+    
+    2. Demo II: solution2.m<br/>
+    
+    3. Demo III: solution3.m<br/>
 
 
 
