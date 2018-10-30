@@ -15,7 +15,7 @@ Fermat's Little Theorem:
      a^(p-1) ≡ 1 mod p
      
 where a is not divisible by p and p is a prime.<br/>
- We came up with four approaches to demonstrate Fermat's Little Theorem
+We came up with four approaches to demonstrate Fermat's Little Theorem
 
 ## Demonstration I:
 
@@ -107,12 +107,12 @@ Showing this equality would demonstrate Fermat's theorem. <br/>
 
 ## Demonstration III:
 
-In this approach we found out prime numbers by taking a fixed value of **a** instead of trying for many values of a and found out numbers which are prime by applying Feramt's theorem . 
+In this approach we found out prime numbers by taking a fixed value of **a** instead of trying for many values of a and found out numbers which are prime by applying Fermat's theorem . 
 
-However if by applying Feramt's theorem if some number p defies it , that tells us that the number is composite however if it gives the reminder 1 we cannot be sure that the number is prime . 
+However if by applying Fermat's theorem if some number p defies it , that tells us that the number is composite however if it gives the reminder 1 we cannot be sure that the number is prime . 
 
 Hence these numbers which give 1 but still are not prime are called **pseudoprimes**. 
-We find the set difference between set of numbers obtained by fermat's theorem and actual prime numbers .
+We find the set difference between set of numbers obtained by Fermat's theorem and actual prime numbers .
 
 ### FILE FORMAT:
 
